@@ -28,24 +28,18 @@ export default class MTGCardInventory extends Component {
         justifyContent: 'flex-end',
         alignItems: 'center'
       }}>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue', alignItems: 'center',
-    justifyContent: 'center'}}>
-          <TouchableOpacity onPress={this.props.deleteMethod}>
+          <TouchableOpacity style={{width: 50, height: 50, backgroundColor: 'powderblue', alignItems: 'center',
+    justifyContent: 'center'}} onPress={this.props.deleteMethod}>
           <Text style={styles.cardItemText}>D</Text>
         </TouchableOpacity>
-        </View>
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue', alignItems: 'center',
-    justifyContent: 'center'}}>
-          <TouchableOpacity onPress={this.props.removeCardMethod}>
+          <TouchableOpacity style={{width: 50, height: 50, backgroundColor: 'skyblue', alignItems: 'center',
+    justifyContent: 'center'}} onPress={this.props.removeCardMethod}>
           <Text style={styles.cardItemText}>-</Text>
         </TouchableOpacity>
-        </View>
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue', alignItems: 'center',
-    justifyContent: 'center'}}>
-          <TouchableOpacity onPress={this.props.addCardMethod}>
+          <TouchableOpacity style={{width: 50, height: 50, backgroundColor: 'steelblue', alignItems: 'center',
+    justifyContent: 'center'}} onPress={this.props.addCardMethod}>
           <Text style={styles.cardItemText}>+</Text>
         </TouchableOpacity>
-        </View>
       </View>
 
 
