@@ -17,20 +17,40 @@ export default class MTGCardInventory extends Component {
   render() {
     return (
       <View key={this.props.keyval} style={styles.card}>
-        <Text style={styles.cardTitle}>{this.props.val.card}</Text>
-        <Text style={styles.cardTitle}>{this.props.val.count}</Text>
+        <View style={styles.cardDetails}>
+          <Text style={styles.cardTitle}>{this.props.val.card}</Text>
+          <Text style={styles.cardCount}>{this.props.val.count}</Text>
+        </View>
 
-        <TouchableOpacity onPress={this.props.deleteMethod} style={styles.cardDelete}>
-          <Text style={styles.cardDeleteText}>D</Text>
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+      }}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue', alignItems: 'center',
+    justifyContent: 'center'}}>
+          <TouchableOpacity onPress={this.props.deleteMethod}>
+          <Text style={styles.cardItemText}>D</Text>
         </TouchableOpacity>
+        </View>
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue', alignItems: 'center',
+    justifyContent: 'center'}}>
+          <TouchableOpacity onPress={this.props.removeCardMethod}>
+          <Text style={styles.cardItemText}>-</Text>
+        </TouchableOpacity>
+        </View>
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue', alignItems: 'center',
+    justifyContent: 'center'}}>
+          <TouchableOpacity onPress={this.props.addCardMethod}>
+          <Text style={styles.cardItemText}>+</Text>
+        </TouchableOpacity>
+        </View>
+      </View>
 
-        <TouchableOpacity onPress={this.props.removeCardMethod} style={styles.cardDelete}>
-          <Text style={styles.cardDeleteText}>-</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.props.addCardMethod} style={styles.cardDelete}>
-          <Text style={styles.cardDeleteText}>+</Text>
-        </TouchableOpacity>
+
+
       </View>
     );
   }
@@ -40,23 +60,27 @@ const styles = StyleSheet.create({
     card: {
       position: 'relative',
       padding: 20,
-      paddingRight: 100,
       borderBottomWidth: 2,
       borderBottomColor: '#ededed',
+      flex: 1,
+      flexDirection: 'row',
+    },
+    cardDetails: {
+      flex: 1,
+      flexDirection: 'column'
     },
     cardTitle: {
       paddingLeft: 20,
       borderLeftWidth: 10,
       borderLeftColor: '#29434e',
+      fontSize: 20
     },
-    cardDelete: {
-      backgroundColor: '#2980b9',
-      padding: 10,
-      top: 10,
-      bottom: 10,
-      right: 10,
+    cardCount: {
+      paddingLeft: 20,
+      borderLeftWidth: 10,
+      borderLeftColor: '#29434e',
     },
-    cardDeleteText: {
+    cardItemText: {
       color: 'white',
     }
 });
