@@ -12,23 +12,32 @@ import {
   View,
   TextInput,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 
 import Card from './app/components/Card';
 
 export default class MTGCardInventory extends Component {
 
-  state = {
-    cardsArray: [],
-    cardCount: '',
-    cardTitle: '',
+  constructor(props) {
+    super(props)
+    this.state = {
+      cardsArray: [],
+      cardCount: '',
+      cardTitle: '',
+    }
   }
+
+  componentWillMount() {
+    this.getData();
+  }
+
 
   render() {
 
     let cards = this.state.cardsArray.map((val, key) => {
-      return <Card key={key} keyval={key} val={val} addCardMethod={ ()=>this.addCard(key) } removeCardMethod={ ()=>this.removeCard(key) } deleteMethod={ ()=>this.deleteCard(key) } />
+      return <Card key={key} keyval={key} val={val} getDataMethod={()=> this.getData()} saveDataMethod={()=> this.saveData()} addCardMethod={ ()=>this.addCard(key) } removeCardMethod={ ()=>this.removeCard(key) } deleteMethod={ ()=>this.deleteCard(key) } />
     })
     return (
       <View style={styles.container}>
@@ -61,12 +70,14 @@ export default class MTGCardInventory extends Component {
       this.setState({ cardsArray: this.state.cardsArray });
       this.setState({ cardTitle: '' });
       this.setState({ cardCount: '' });
+      this.saveData();
     }
   }
 
   deleteCard(key) {
     this.state.cardsArray.splice(key, 1);
-    this.setState({ cardsArray: this.state.cardsArray })
+    this.setState({ cardsArray: this.state.cardsArray });
+    this.saveData();
   }
 
   removeCard(key) {
@@ -74,11 +85,33 @@ export default class MTGCardInventory extends Component {
       this.state.cardsArray[key].count--;
     }
     this.setState({ cardsArray: this.state.cardsArray });
+    this.saveData();
   }
 
   addCard(key) {
     this.state.cardsArray[key].count++;
     this.setState({ cardsArray: this.state.cardsArray });
+    this.saveData();
+  }
+
+  async saveData() {
+    try {
+      await AsyncStorage.setItem('storageCardsArray', JSON.stringify(this.state.cardsArray));
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async getData() {
+    try {
+      const value = await AsyncStorage.getItem('storageCardsArray');
+      if (value !== null){
+        // We have data!!
+        this.setState({cardsArray: JSON.parse(value)})
+      }
+    } catch (error) {
+      alert(error);
+    }
   }
 }
 
