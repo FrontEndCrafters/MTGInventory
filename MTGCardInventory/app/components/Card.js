@@ -21,7 +21,7 @@ export default class MTGCardInventory extends Component {
     ]
 
     return (
-    <Swipeout right={swipeoutBtns} backgroundColor={'transparent'} onOpen={ this.props.deleteMethod }>
+    <Swipeout right={swipeoutBtns} backgroundColor={'transparent'} autoClose={true} close={true} sensitivity={25} onOpen={ this.props.deleteMethod }>
       <View key={this.props.keyval} style={styles.card}>
         <View style={styles.cardDetails}>
           <Text style={styles.cardTitle}>{this.props.val.card}</Text>
