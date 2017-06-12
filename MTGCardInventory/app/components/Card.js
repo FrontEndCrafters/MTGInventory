@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -13,15 +7,26 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import Swipeout from 'react-native-swipeout';
+
 export default class MTGCardInventory extends Component {
+
   render() {
+
+    var swipeoutBtns = [
+      {
+        text: 'Delete',
+        backgroundColor: 'red'
+      }
+    ]
+
     return (
+    <Swipeout right={swipeoutBtns} backgroundColor={'transparent'} onOpen={ this.props.deleteMethod }>
       <View key={this.props.keyval} style={styles.card}>
         <View style={styles.cardDetails}>
           <Text style={styles.cardTitle}>{this.props.val.card}</Text>
           <Text style={styles.cardCount}>{this.props.val.count}</Text>
         </View>
-
         <View style={{
           flex: 1,
           flexDirection: 'row',
@@ -42,6 +47,7 @@ export default class MTGCardInventory extends Component {
           </TouchableOpacity>
         </View>
       </View>
+    </Swipeout>
     );
   }
 }

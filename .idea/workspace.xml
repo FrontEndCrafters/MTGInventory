@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d91fdac6-234b-4eac-8eda-5d3105c04ef8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTGCardInventory/app/components/Card.js" afterPath="$PROJECT_DIR$/MTGCardInventory/app/components/Card.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MTGCardInventory/index.android.js" afterPath="$PROJECT_DIR$/MTGCardInventory/index.android.js" />
     </list>
     <ignored path="MTGCardInventory.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,7 +84,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MTGCardInventory/android" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -171,7 +171,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="27" width="3204" height="1732" extended-state="1" />
+    <frame x="13" y="27" width="3204" height="1732" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

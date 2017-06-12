@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -17,6 +11,7 @@ import {
 } from 'react-native';
 
 import Card from './app/components/Card';
+import Swipeout from 'react-native-swipeout';
 
 export default class MTGCardInventory extends Component {
 
