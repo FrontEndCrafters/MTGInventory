@@ -73,6 +73,7 @@ export default class MTGCardInventory extends Component {
     this.state.cardsArray.splice(key, 1);
     this.setState({ cardsArray: this.state.cardsArray });
     this.saveData();
+    this.forceUpdate();
   }
 
   removeCard(key) {
