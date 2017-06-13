@@ -35,11 +35,3 @@ def indexpage():
 if __name__ == "__main__":
     app.jinja_env.cache={}
     app.run(host=ip_addr, debug=True, use_reloader=True, threaded=True)
-
-
-
-
-
-
-
-
