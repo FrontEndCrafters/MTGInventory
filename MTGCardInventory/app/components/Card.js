@@ -33,10 +33,6 @@ export default class MTGCardInventory extends Component {
           justifyContent: 'flex-end',
           alignItems: 'center'
         }}>
-            <TouchableOpacity style={{width: 50, height: 50, backgroundColor: 'powderblue', alignItems: 'center',
-      justifyContent: 'center'}} onPress={this.props.deleteMethod}>
-            <Text style={styles.cardItemText}>D</Text>
-          </TouchableOpacity>
             <TouchableOpacity style={{width: 50, height: 50, backgroundColor: 'skyblue', alignItems: 'center',
       justifyContent: 'center'}} onPress={this.props.removeCardMethod}>
             <Text style={styles.cardItemText}>-</Text>
