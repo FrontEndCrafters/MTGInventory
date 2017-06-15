@@ -36,10 +36,5 @@ def indexpage():
         return render_template('index.html')
 
 if __name__ == "__main__":
-<<<<<<< 666e020e0c9a5b316b19de5756cd93a027cfd7a2
     app.jinja_env.cache = {}
     app.run(host=ip_addr, debug=True, use_reloader=True, threaded=True)
-=======
-    app.jinja_env.cache={}
-    app.run(host=ip_addr, debug=True, use_reloader=True, threaded=True)
->>>>>>> Removed Spaces
