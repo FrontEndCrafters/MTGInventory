@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+</head>
+<body>
+<script  type="text/javascript"   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script  type="text/javascript"   >
+$( document ).ready(function() {
+    console.log('page loaded');
+    $('#submit').on('click', function (){
+        var name=$('#card_name').val();
+        console.log("Sending: "+name);
+        $.ajax({
+            type: 'POST',
+            url: 'http://10.172.234.161:5000/',
+			crossDomain: true,
+            data: name,
+            dataType: 'JSON',
+            success: function (data) {
+				console.log("Returned data: "+data);
+                		$('#name').text(data['name']);
+				$('#color').text(data['color']);
+				$('#cost').text(data['value']);
+				$('#text').text(data['text']);
+				$('#image').attr("src",data['url']);
+            },
+			error: function (data) {
+                console.log('ajax FAILED or denied');
+            }
+        });
+		console.log('AJAX sent');
+    });
+});
+</script>
+
+<form id="form">
+  <input id="card_name" type="text" placeholder="Card Name" size="15" />
+  <button id='submit' type='button'>Submit</button>
+	<p>
+    Name: <span  id="name"></span>
+	<p>
+    Color: <span  id="color"></span>
+	<p>
+    Cost: <span  id="cost"></span>
+	<p>
+	Text: <span  id="text"></span>
+	<p>
+    <img id="image" src="">
+</form>
+</body>
+</html>
