@@ -18,7 +18,7 @@ $( document ).ready(function() {
             dataType: 'JSON',
             success: function (data) {
 				console.log("Returned data: "+data);
-                $('#name').text(data['name']);
+                		$('#name').text(data['name']);
 				$('#color').text(data['color']);
 				$('#cost').text(data['value']);
 				$('#text').text(data['text']);
